@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>拾荒熊主页</title>
+        <style>
+            /*html样式占据整个浏览器*/
+            html{
+	            width:100%;
+	            height: 100%;
+                margin:0;
+                padding:0
+            }
+
+            body {
+                background-image:url('images/yuliang.png');
+                background-repeat:no-repeat;
+                background-size:cover;
+                background-color: #ffd9bb;
+                background-position: center;
+            }
+            .container {
+                width: 600px;
+                height: 350px;
+                margin: auto;
+                background-color: #34343460;
+                border-radius: 5px; /* 设置圆角半径 */
+                top: 50%;
+            }
+            .login-container {
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+            }
+            .btn {
+                background-color: #1818189e; /* 按钮背景色 */
+                color: rgb(255, 255, 255); /* 字体颜色 */
+                font-size: 16px; /* 字体大小 */
+                padding: 10px 32px; /* 内边距 */
+                width: 80%;
+                text-decoration: none; /* 去除下划线 */
+                display: flex; /* 让按钮支持内边距和边框 */
+                margin: 10px auto; /* 外边距 */
+                cursor: pointer; /* 鼠标样式 */
+                border: none; /* 无边框 */
+                border-radius: 5px; /* 圆角 */
+                transition: background-color 0.3s; /* 背景色渐变 */
+            }
+
+            .btn:hover {
+                background-color: #ecae7c; /* 鼠标悬停时背景色变化 */
+                color: rgb(57, 58, 65);
+            }
+
+            .btn:active {
+                background-color: #ffffff; /* 鼠标点击时背景色变化 */
+                color: rgb(0, 0, 0);
+                transform: translateY(2px); /* 点击时轻微下移 */
+            }
+
+            .logbtn {
+                background-color: #1818189e; /* 按钮背景色 */
+                color: rgb(255, 255, 255); /* 字体颜色 */
+                font-size: 16px; /* 字体大小 */
+                padding: 5px 10px; /* 内边距 */
+                width: 35px;
+                text-decoration: none; /* 去除下划线 */
+                cursor: pointer; /* 鼠标样式 */
+                border: none; /* 无边框 */
+                border-radius: 5px; /* 圆角 */
+                transition: background-color 0.3s; /* 背景色渐变 */
+            }
+
+            .logbtn:hover {
+                background-color: #ecae7c; /* 鼠标悬停时背景色变化 */
+                color: rgb(57, 58, 65);
+            }
+
+            .logbtn:active {
+                background-color: #ffffff; /* 鼠标点击时背景色变化 */
+                color: rgb(0, 0, 0);
+                transform: translateY(2px); /* 点击时轻微下移 */
+            }
+            .horizontal-line {
+                width: 90%; /* 横线宽度 */
+                height: 2px; /* 横线高度 */
+                background-color: #ffffff; /* 横线颜色 */
+                margin: 20px auto; /* 上下边距 */
+            }
+            h1 {
+	            color:rgba(94, 127, 202, 0.644);
+	            text-align:center;
+                font-size:60px;
+            }
+            h2 {
+	            color:rgb(255, 255, 255);
+	            text-align:center;
+                font-size:20px;
+                margin: 20px 0; /* 上下边距 */
+                padding: 20px; /* 内边距 */
+            }
+            </style>
+    </head>
+    <body>
+        <div class = "login-container">
+            <a href="account/login.html" class="logbtn">登录</a>
+            <a href="account/regester.html" class="logbtn">注册</a>
+        </div>
+        <h1>GleanBear'net</h1>
+        <div class="container">
+            <h2>欢迎来到GleanBear'net！</h2>
+            <div class="horizontal-line"></div>
+            <a href="directions/log.html" class="btn">技术日志</a>
+            <a href="directions/note.html" class="btn">笔记</a>
+            <a href="directions/gallery.html" class="btn">画廊</a> 
+            <a href="directions/hobbies.html" class="btn">爱好集</a>
+            <a href="directions/tools.html" class="btn">小工具</a>
+        </div>
+    </body>
+</html>
