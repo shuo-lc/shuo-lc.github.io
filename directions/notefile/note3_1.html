@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>笔记</title>
+    <style>
+        body {
+            width:100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-color: #ffffff;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: 220px 1fr; 
+            grid-template-rows: 60px 1fr; 
+            height: 100vh;
+        }
+        .navbar {
+            grid-column: 1 / -1;
+            background-color: #333333;
+            display: flex;
+            padding: 20px;
+            color: #fefefe;
+        }
+        .sidebar {
+            background-color: #505050;
+        }
+        .main-content {
+            background-color: #c0cdc1;
+        }
+        .home-btn {
+            color: #fefefe;
+            text-decoration: none;
+            margin-left: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .home-btn:hover {
+            color: #99cf97;
+        }
+        .home-btn:active {
+            transform: translateY(3px);
+            color:#4bb247;
+        }
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 10px;
+        }
+        .sidebar p {
+            margin: 0;
+            padding: 10px;
+            color: #fefefe;
+            font-weight: bold;
+        }
+        .sidebar ul ul {
+            margin-left: 20px;
+        }
+        .sidebar a {
+            color: #fefefe;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            color: #65483f;
+        }
+
+        .collapsible-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .collapsible-list li {
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .header {
+            padding-left: 30px;
+            cursor: pointer; 
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        .icon {
+            display: inline-block;
+            margin-right: 10px; /* 图标与文字之间的间距 */
+            transition: transform 0.3s; /* 添加平滑过渡效果 */
+        }
+
+        .header:hover .icon {
+            transform: rotate(90deg); /* 展开时旋转图标 */
+            color:#4bb247;
+        }
+
+        .header:hover {
+            color:#4bb247;
+        }
+
+        .content {
+            padding-left: 50px;
+            display: none; 
+        }
+        h1{
+            color:#3a3a3a;
+            text-align:center;
+        }
+        .date{
+            color:#353535;
+            text-align:right;
+            padding: 20px;
+        }
+        .main{
+            text-align:justify;
+            padding: 20px;
+        }
+        </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="navbar">
+            <a>GleanBear 笔记</a>
+            <a href="../../index.html" class="home-btn">GleanBear'home</a>
+        </div>
+        <div class = "sidebar">
+            <ul>
+                <li><a style = "font-weight: bold; padding: 10px; " href="../note.html">概览</a></li>
+                <li>
+                    <p>德硕cs</p>
+                    <ul>
+                        <li><a href="note1_1.html" >学校</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>浙传数技本科</p>
+                </li>
+                <li>
+                    <p>其他</p>
+                    <ul>
+                        <li><a href="logfile/logNet1.html" style="color: #4bb247">德语</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class = "main-content">
+            <div class = "title">
+                <h1>德语学习笔记</h1>
+                <p class = "date">2024.10.16</p>
+            </div>
+            <div class = "catalog">
+                <ul class="collapsible-list">
+                    <li>
+                        <div class = "header"><span class="icon">▶</span>目录</div>
+                        <div class = "content">
+                            <ul class="collapsible-list">
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>零散</div>
+                                    <div class = "content">
+                                        <ul class="collapsible-list">
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>日常</div>
+                                                <div class = "content"></div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>专业</div>
+                                                <div class = "content"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>系统</div>
+                                    <div class = "content">
+                                        <ul class="collapsible-list">
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>单词</div>
+                                                <div class = "content"></div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>语法</div>
+                                                <div class = "content"></div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>听力</div>
+                                                <div class = "content"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class = "">
+                <div class = "">
+                    <h2>零散</h2>
+                    <h3>日常</h3>
+                    <h3>专业</h3>
+                    <table border="1">
+                        <thead>
+                            <th>deutsch</th>
+                            <th>中文</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aktuelles</td>
+                                <td>新闻资讯</td>
+                            </tr>
+                            <tr>
+                                <td>Studium</td>
+                                <td>研究</td>
+                            </tr>
+                            <tr>
+                                <td>Lebenslanges Lernen</td>
+                                <td>终身学习</td>
+                            </tr>
+                            <tr>
+                                <td>Forschung</td>
+                                <td>研究</td>
+                            </tr>
+                            <tr>
+                                <td>Innovation</td>
+                                <td>创新</td>
+                            </tr>
+                            <tr>
+                                <td>Community</td>
+                                <td>社区</td>
+                            </tr>
+                            <tr>
+                                <td>Über</td>
+                                <td>关于</td>
+                            </tr>
+                            <tr>
+                                <td>zur Übersicht</td>
+                                <td>概览</td>
+                            </tr>
+                            <tr>
+                                <td>Studienangebot</td>
+                                <td>课程设置</td>
+                            </tr>
+                            <tr>
+                                <td>Ingenieurwissenschaften</td>
+                                <td>工程</td>
+                            </tr>
+                            <tr>
+                                <td>Naturwissenschaften</td>
+                                <td>自然科学</td>
+                            </tr>
+                            <tr>
+                                <td>Lebenswissenschaften</td>
+                                <td>生命科学</td>
+                            </tr>
+                            <tr>
+                                <td>Medizin</td>
+                                <td>医学</td>
+                            </tr>
+                            <tr>
+                                <td>Sozialwissenschaften</td>
+                                <td>社会科学</td>
+                            </tr>
+                            <tr>
+                                <td>Wirtschaftswissenschaften</td>
+                                <td>经济学</td>
+                            </tr>
+                            <tr>
+                                <td>Politikwissenschaften</td>
+                                <td>政治学</td>
+                            </tr>
+                            <tr>
+                                <td>Informatik</td>
+                                <td>计算机科学</td>
+                            </tr>
+                            <tr>
+                                <td>Studiengang</td>
+                                <td>研究课程</td>
+                            </tr>
+                            <tr>
+                                <td>Pflichtmodule Informatik und Mathematik</td>
+                                <td>计算机科学和数学的必修模块</td>
+                            </tr>
+                            <tr>
+                                <td>Wahlmodule Informatik</td>
+                                <td>计算机科学选修模块</td>
+                            </tr>
+                            <tr>
+                                <td>Seminar und Praktikum</td>
+                                <td>研讨会和实习</td>
+                            </tr>
+                            <tr>
+                                <td>Anwendungsfach</td>
+                                <td>申请主题</td>
+                            </tr>
+                            <tr>
+                                <td>Überfachliche Grundlagen</td>
+                                <td>跨学科基础知识</td>
+                            </tr>
+                            <tr>
+                                <td>Abschlussarbeit</td>
+                                <td>论文</td>
+                            </tr>
+                            <tr>
+                                <td>Module</td>
+                                <td>模块</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <script src="../logfile/catalog.js"></script>
+        </div>
+    </div>
+</body>

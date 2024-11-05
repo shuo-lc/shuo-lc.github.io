@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>笔记</title>
+    <style>
+        body {
+            width:100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-color: #ffffff;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: 220px 1fr; 
+            grid-template-rows: 60px 1fr; 
+            height: 100vh;
+        }
+        .navbar {
+            grid-column: 1 / -1;
+            background-color: #333333;
+            display: flex;
+            padding: 20px;
+            color: #fefefe;
+        }
+        .sidebar {
+            background-color: #505050;
+        }
+        .main-content {
+            background-color: #c0cdc1;
+        }
+        .home-btn {
+            color: #fefefe;
+            text-decoration: none;
+            margin-left: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .home-btn:hover {
+            color: #99cf97;
+        }
+        .home-btn:active {
+            transform: translateY(3px);
+            color:#4bb247;
+        }
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 10px;
+        }
+        .sidebar p {
+            margin: 0;
+            padding: 10px;
+            color: #fefefe;
+            font-weight: bold;
+        }
+        .sidebar ul ul {
+            margin-left: 20px;
+        }
+        .sidebar a {
+            color: #fefefe;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            color: #4bb247;
+        }
+
+        .collapsible-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .collapsible-list li {
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .header {
+            padding-left: 30px;
+            cursor: pointer; 
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        .icon {
+            display: inline-block;
+            margin-right: 10px; /* 图标与文字之间的间距 */
+            transition: transform 0.3s; /* 添加平滑过渡效果 */
+        }
+
+        .header:hover .icon {
+            transform: rotate(90deg); /* 展开时旋转图标 */
+            color:#4bb247;
+        }
+
+        .header:hover {
+            color:#4bb247;
+        }
+
+        .content {
+            padding-left: 50px;
+            display: none; 
+        }
+        h1{
+            color:#3a3a3a;
+            text-align:center;
+        }
+        .date{
+            color:#353535;
+            text-align:right;
+            padding: 20px;
+        }
+        .main{
+            text-align:justify;
+            padding: 20px;
+        }
+        </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="navbar">
+            <a>GleanBear 笔记</a>
+            <a href="../../index.html" class="home-btn">GleanBear'home</a>
+        </div>
+        <div class = "sidebar">
+            <ul>
+                <li><a style = "font-weight: bold; padding: 10px; " href = "../note.html">概览</a></li>
+                <li>
+                    <p>德硕cs</p>
+                    <ul>
+                        <li><a href="note1_1.html" >学校</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>浙传数技本科</p>
+                    <ul>
+                    </ul>
+                </li>
+                <li>
+                    <p>其他</p>
+                    <ul>
+                        <li><a href="note3_1.html" >德语</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>随笔</p>
+                    <ul>
+                        <li><a href="notefile/note4_1.html" style="color: #4bb247">2024</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class = "main-content">
+            <div class = "title">
+                <h1>2024随笔</h1>
+                <p class = "date">2024.10.16-2024.12.31</p>
+            </div>
+            <div class = "catalog">
+                <ul class="collapsible-list">
+                    <li>
+                        <div class = "header"><span class="icon">▶</span>目录</div>
+                        <div class = "content">
+                            <ul class="collapsible-list">
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>2024.10</div>
+                                </li>
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>2024.11</div>
+                                </li>
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>2024.12</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <script src="../logfile/catalog.js"></script>
+            <div class = "">
+                <div class = "2024.10">
+                    <h2>2024.10</h2>
+                    <div class = "">
+                        <h3>10.16</h3>
+                        <p>哇。从10.8到10.16，每天做的事情好像都如此重复...睡觉...吃饭...上课...在图书馆对着电脑坐...画画..还有相当一部分时间掉落进无意义的信息茧房。</p>
+                        <p>大致确定了一下方向吧，这四年把德语学到C1，然后找个什么工作</p>
+                        <p>那么近期呢，第一，网站，第二，课程整理，第三，德语，第四，做个游戏，第五，计算机视觉CV</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

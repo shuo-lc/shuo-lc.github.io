@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>deutsch学习</title>
+    <style>
+        body {
+            width:100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-image: url(../../../images/yuliang1.png);
+            background-size: cover;
+            background-position: center;   
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+       .navbar {
+            height: 20px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            padding: 20px;
+        }
+        .home-btn {
+            color: #fefefe;
+            text-decoration: none;
+            margin-left: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .home-btn:hover {
+            color: #99cf97;
+        }
+        .home-btn:active {
+            transform: translateY(3px);
+            color:#4bb247;
+        }
+        .choices-container {
+            display: flex;
+            flex-direction: row;
+            margin: 50px auto;
+            background-color: #4bb247;
+            width: 60%;
+            height: 60px;
+            border-radius: 30px;
+        }
+        .language-select-form {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #4e484800;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        select {
+            width: 100px; 
+            padding: 5px; /* 设置内边距 */
+            border: 1px solid #ccc; /* 设置边框 */
+            border-radius: 4px; /* 设置边框圆角 */
+            background-color: white; /* 设置背景色 */
+            font-size: 16px; /* 设置字体大小 */
+            cursor: pointer; /* 设置鼠标指针样式 */
+        }
+        select:focus {
+            outline: none; /* 移除聚焦时的轮廓线 */
+            border-color: #007bff; /* 聚焦时改变边框颜色 */
+        }
+        .wordcard-container {
+            position: relative; /* 设置父容器为相对定位 */
+            display: flex;
+            flex-direction: column; /* 行方向布局 */
+            flex-wrap: wrap; /* 允许子元素换行 */
+            align-items: stretch; /* 拉伸子元素以填充容器的宽度 */
+            justify-content: center; /* 居中对齐子元素 */
+            margin: 80px auto;
+            background-color: #323232a4;
+            width: 60%;
+            height: auto; 
+            border-radius: 10px;
+        }
+
+        .word-card {
+            flex: 1; /* 使所有卡片等宽 */
+            margin: 5px; /* 每个卡片的间距 */
+            background-color: #e5dadaa2;
+            border-radius: 10px;
+            box-sizing: border-box;
+            height: auto; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 垂直居中 */
+            align-items: center; /* 水平居中 */
+        }
+
+        p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            margin: 10px 0; /* 上下边距为10px，左右边距为0 */
+            text-align: center; /* 文本居中对齐 */
+        }
+        .convenient {
+            display: flex;
+            margin: 80px auto;
+            background-color: #af7a7aa4;
+            width: 60%;
+            height: 100px;
+        }
+        .next-word-btn {
+            background-color: #cbdeca;
+            border: none;
+            color: #000000;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px auto;
+            width: 300px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+       .next-word-btn:hover {
+            background-color: #3e683f;
+        }
+       .next-word-btn:active {
+            background-color: #0e4f0e;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="navbar">
+            <a>GleanBear 网站建设日志</a>
+            <a href="deutsch.html" class="home-btn">德语学习</a>
+            <a href="../../tools.html" class="home-btn">小工具集</a>
+            <a href="../../../index.html" class="home-btn">GleanBear'home</a>
+        </div>
+        <div class="words-container">
+            <div class="choices-container">
+                <div class="language-select-form">
+                    <form action="">
+                        <label for="language-select">选择语言：</label>
+                        <select name="language" id = "language-select">
+                            <option value="all" selected>显示所有</option>
+                            <option value="Chinese">中文</option>
+                            <option value="English">English</option>
+                            <option value="Deutsch" >Deutsch</option>
+                        </select>
+                    </form>
+                    <script>
+                        // 获取选择框
+                        const selectBox = document.getElementById('language-select');
+                    
+                        // 监听选择框的变化
+                        selectBox.addEventListener('change', function() {
+                            // 获取所有的内容区域
+                            const contents = document.querySelectorAll('#content-Chinese, #content-English, #content-Deutsch');
+                    
+                            // 显示所有内容
+                            contents.forEach(content => {
+                                content.style.display = 'block';
+                            });
+                    
+                            // 隐藏选中内容
+                            const selectedLanguage = this.value;
+                            if (selectedLanguage !== 'all') {
+                                // 隐藏选中语言对应的内容
+                                document.getElementById('content-' + selectedLanguage).style.display = 'none';
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="wordcard-container">
+                <div id="content-Chinese" class = "word-card">
+                    <p>小猫</p>
+                </div>
+                <div id="content-English" class = "word-card">
+                    <p>cat</p>
+                </div>
+                <div id="content-Deutsch" class = "word-card">
+                    <p>katze</p>
+                </div>
+            </div>
+            <div class="convenient">
+                <button class = "next-word-btn">check</button>
+            </div>
+        </div>
+    </div>
+</body>

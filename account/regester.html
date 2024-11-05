@@ -1,0 +1,117 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>拾荒熊注册</title>
+    <style>
+        html{
+            width:100%;
+	        height: 100%;
+            margin:0;
+            padding:0
+        }
+        body{
+            background-image:url('images/bg_1.jpg');
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position: center;
+            display: flex; 
+            justify-content: center;
+        }
+        .container {
+            width: 500px;
+            height: 300px;
+            margin: auto;
+            background-color: #34343460;
+            border-radius: 5px; /* 设置圆角半径 */
+            
+        }
+        h2{
+            text-align: center;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .horizontal-line{
+            width: 90%;
+            height: 1px;
+            background-color: #fff;
+            margin: 2px auto;
+        }
+        .form-group{
+            margin-top: 20px;
+            text-align: center;
+        }
+       .form-control{
+            width: 80%;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+        }
+        input[type="submit"]{
+            width: 80%;
+            height: 40px;
+            background-color: #343434;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+        }
+        input[type="submit"]:hover{
+            background-color: #555;
+        }
+        input[type="submit"]:active{
+            background-color: #f7f7f7;
+        }
+        a{
+            color: #fff;
+            font-size: 12px;
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+        }
+        input[type="text"]:focus{
+            outline: none;
+            box-shadow: 0 0 5px #fff;
+            width: 80%;
+            display: block; /* 使元素在新的行上显示 */
+            margin: 0 auto; /* 居中对齐 */
+        }
+        biao{
+            caret-color: #4e6ef2;
+            position: relative;
+            z-index: 17;
+            box-sizing: border-box;
+            display: block;
+            padding: 10px 20px;
+            margin: 0;
+            height: 48px;
+            line-height: 20px;
+            width: 336px;
+            border: 1px solid #b8b8b8;
+            font-size: 18px;
+            color: #1f1f1f;
+            transition: .3s;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+        <h2>注册</h2>
+        <div class="horizontal-line"></div>
+        <form action="register.php" method="post">
+            <input class = "biao" type="text" name="name" placeholder="请输入用户名">
+            <input type="text" name="password" placeholder="请输入密码">
+            <input type="submit" value="注册">
+            <a href="index.html">返回登录</a>
+        </form>
+    </div>
+</body>
+</html>

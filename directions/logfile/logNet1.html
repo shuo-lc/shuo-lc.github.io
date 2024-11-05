@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>网站建设日志</title>
+    <style>
+        body {
+            width:100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-color: #ffffff;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: 220px 1fr; 
+            grid-template-rows: 60px 1fr; 
+            height: 100vh;
+        }
+        .navbar {
+            grid-column: 1 / -1;
+            background-color: #333333;
+            display: flex;
+            padding: 20px;
+            color: #fefefe;
+        }
+        .sidebar {
+            background-color: #505050;
+        }
+        .main-content {
+            background-color: #c0cdc1;
+        }
+        .home-btn {
+            color: #fefefe;
+            text-decoration: none;
+            margin-left: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .home-btn:hover {
+            color: #99cf97;
+        }
+        .home-btn:active {
+            transform: translateY(3px);
+            color:#4bb247;
+        }
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 10px;
+        }
+        .sidebar p {
+            margin: 0;
+            padding: 10px;
+            color: #fefefe;
+            font-weight: bold;
+        }
+        .sidebar ul ul {
+            margin-left: 20px;
+        }
+        .sidebar a {
+            color: #fefefe;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            color: #4bb247;
+        }
+
+        .collapsible-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .collapsible-list li {
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .header {
+            padding-left: 30px;
+            cursor: pointer; 
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        .icon {
+            display: inline-block;
+            margin-right: 10px; /* 图标与文字之间的间距 */
+            transition: transform 0.3s; /* 添加平滑过渡效果 */
+        }
+
+        .header:hover .icon {
+            transform: rotate(90deg); /* 展开时旋转图标 */
+            color:#4bb247;
+        }
+
+        .header:hover {
+            color:#4bb247;
+        }
+
+        .content {
+            padding-left: 50px;
+            display: none; 
+        }
+        </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="navbar">
+            <a>GleanBear 网站建设日志</a>
+            <a href="../../index.html" class="home-btn">GleanBear'net</a>
+        </div>
+        <div class = "sidebar">
+            <ul>
+                <li><a style = "font-weight: bold; padding: 10px;" href = "../log.html">概览</a></li>
+                <li>
+                    <p>网站</p>
+                    <ul>
+                        <li><a href="logNet1.html" style = "color: #4bb247">建站准备</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>AR</p>
+                </li>
+            </ul>
+        </div>
+        <div class = "main-content">
+            <div class = "title">
+                <h1>建站准备</h1>
+                <p class = "date">2024.9.15-2024.10.14</p>
+            </div>
+            <div class = "catalog">
+                <ul class="collapsible-list">
+                    <li>
+                        <div class = "header"><span class="icon">▶</span>目录</div>
+                        <div class = "content">
+                            <ul class="collapsible-list">
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>购买相关</div>
+                                    <div class = "content">
+                                        <ul class="collapsible-list">
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>域名</div>
+                                                <div class = "content">在阿里云购买域名gleanbear.online,为期一年</div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>服务器</div>
+                                                <div class = "content">在腾讯云购买轻量型服务器，二核，为期三月</div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>备案</div>
+                                                <div class = "content">在腾讯云备案gleanbear.online域名，并解析成功</div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>宝塔面板</div>
+                                                <div class = "content">通过VNP登录服务器，安装宝塔面板，配置相关环境</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>简单前端搭建</div>
+                                    <div class = "content">
+                                        <ul class="collapsible-list">
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>学习html</div>
+                                                <div class = "content">包括框架、标签、属性等</div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>学习css</div>
+                                                <div class = "content">包括选择器、属性、布局等</div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>学习js</div>
+                                                <div class = "content">包括变量、函数、事件等</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>简单后端尝试</div>
+                                    <div class = "content">
+                                        <ul class="collapsible-list">
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>学习php</div>
+                                                <div class = "content">包括写法、语法、函数等</div>
+                                            </li>
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>学习数据库</div>
+                                                <div class = "content">包括数据库的建立、建表、插入数据等</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class = "main-content-text">
+                <h2>一、学习过程中遇到的问题</h2>
+                <h3>一、域名</h3>
+                <p>在阿里云购买域名gleanbear.online,为期一年</p>
+                <h3>二、服务器</h3>
+                <p>在腾讯云购买轻量型服务器，二核，为期三月</p>
+                <h3>三、备案</h3>
+                <p>在腾讯云备案gleanbear.online域名，并解析成功</p>
+                <h3>四、宝塔面板</h3>
+                <p>通过VNP登录服务器，安装宝塔面板，配置相关环境</p>
+                <h2>二、简单前端搭建</h2>
+                <h3>一、学习html</h3>
+                <p>包括框架、标签、属性等</p>
+                <h3>二、学习css</h3>
+                <p>包括选择器、属性、布局等</p>
+                <h3>三、学习js</h3>
+                <p>包括变量、函数、事件等</p>
+                <h2>三、简单后端尝试</h2>
+                <h3>一、学习php</h3>
+                <p>包括写法、语法、函数等</p>
+                <h3>二、学习数据库</h3>
+                <p>包括数据库的建立、建表、插入数据等</p>
+            </div>
+            
+            <script src="catalog.js"></script>
+        </div>
+    </div>
+</body>

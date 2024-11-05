@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>gleanbear画廊</title>
+    <style>
+        body {
+            width:100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-color: #e9e9e9;
+        }
+        .main-container {
+            display: grid; 
+            grid-template-columns: 1fr;
+            grid-template-rows: 60px 600px 300px;
+            height: 100vh;
+        }
+        .navbar {
+            grid-column: 1;
+            grid-row: 1;
+            background-color: #333333;
+            display: flex;
+            padding: 20px;
+            color: #fefefe;
+        }
+        .home-btn {
+            color: #fefefe;
+            text-decoration: none;
+            margin-left: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .home-btn:hover {
+            color: #99cf97;
+        }
+        .home-btn:active {
+            transform: translateY(3px);
+            color:#4bb247;
+        }
+        .gallery-container {
+            grid-column: 1;
+            grid-row: 2;
+            display: block;
+            padding: 0;
+            height: 600px;
+        }
+        .classfication-container {
+            grid-column: 1;
+            grid-row: 3;
+            display: flex;
+            padding: 20px;
+            background-color: #d8e1d8;
+            height: 300px;
+            display: flex;
+            justify-content: space-around;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%; /* 轮播宽度 */
+            height: 600px; /* 轮播高度 */
+        }
+
+        .carousel-images {
+            display: flex; /* 使用flex布局 */
+            transition: transform 0.5s ease; /* 添加动画效果 */
+        }
+
+        .carousel-images img {
+            width: 100%; /* 每张图片的宽度 */
+            height: 600px; /* 高度自适应 */
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.0);
+            color: #fff;
+            border: none;
+            font-size: 36px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .prev {
+            left: 20px; /* 左侧按钮位置 */
+        }
+
+        .next {
+            right: 20px; /* 右侧按钮位置 */
+        }
+        .classification-card {
+            background-color: #fefefe; /* 卡片背景颜色 */
+            border: 1px solid #ccc; /* 边框 */
+            border-radius: 8px; /* 边角圆滑 */
+            padding: 20px; /* 内边距 */
+            text-align: center; /* 中心对齐文本 */
+            width: 25%; /* 卡片宽度 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 投影效果 */
+            transition: transform 0.3s; /* 添加过渡效果 */
+        }
+    </style>
+</head>
+<body>
+    <div class = "main-container">
+        <div class = "navbar">
+            <a>GleanBear画廊</a>
+            <a href="../index.html" class="home-btn">GleanBear'home</a>
+        </div>
+        <div class = "gallery-container">
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="../images/bg_1.jpg" alt="Image 1" class="active">
+                    <img src="../images/yuliang.png" alt="Image 2">
+                    <img src="../images/zhiqinaideguduzhe.jpeg" alt="Image 3">
+                </div>
+                <button class="prev" id="prevBtn">◀</button>
+                <button class="next" id="nextBtn">▶</button>
+            </div>
+            <script src="carousel.js"></script>
+        </div>
+        <div class = "classfication-container">
+            <div class="classification-card">类别1</div>
+            <div class="classification-card">类别2</div>
+            <div class="classification-card">类别3</div>
+        </div>
+    </div>
+</body>

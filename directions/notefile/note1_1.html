@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>笔记</title>
+    <style>
+        body {
+            width:100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-color: #ffffff;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: 220px 1fr; 
+            grid-template-rows: 60px 1fr; 
+            height: 100vh;
+        }
+        .navbar {
+            grid-column: 1 / -1;
+            background-color: #333333;
+            display: flex;
+            padding: 20px;
+            color: #fefefe;
+        }
+        .sidebar {
+            background-color: #505050;
+        }
+        .main-content {
+            background-color: #c0cdc1;
+        }
+        .home-btn {
+            color: #fefefe;
+            text-decoration: none;
+            margin-left: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .home-btn:hover {
+            color: #99cf97;
+        }
+        .home-btn:active {
+            transform: translateY(3px);
+            color:#4bb247;
+        }
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 10px;
+        }
+        .sidebar p {
+            margin: 0;
+            padding: 10px;
+            color: #fefefe;
+            font-weight: bold;
+        }
+        .sidebar ul ul {
+            margin-left: 20px;
+        }
+        .sidebar a {
+            color: #fefefe;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            color: #65483f;
+        }
+
+        .collapsible-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .collapsible-list li {
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .header {
+            padding-left: 30px;
+            cursor: pointer; 
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        .icon {
+            display: inline-block;
+            margin-right: 10px; /* 图标与文字之间的间距 */
+            transition: transform 0.3s; /* 添加平滑过渡效果 */
+        }
+
+        .header:hover .icon {
+            transform: rotate(90deg); /* 展开时旋转图标 */
+            color:#4bb247;
+        }
+
+        .header:hover {
+            color:#4bb247;
+        }
+
+        .content {
+            padding-left: 50px;
+            display: none; 
+        }
+        h1{
+            color:#3a3a3a;
+            text-align:center;
+        }
+        .date{
+            color:#353535;
+            text-align:right;
+            padding: 20px;
+        }
+        .main{
+            text-align:justify;
+            padding: 20px;
+        }
+        </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="navbar">
+            <a>GleanBear 笔记</a>
+            <a href="../index.html" class="home-btn">GleanBear'home</a>
+        </div>
+        <div class = "sidebar">
+            <ul>
+                <li><a style = "font-weight: bold; padding: 10px; " href="../note.html">概览</a></li>
+                <li>
+                    <p>德硕cs</p>
+                    <ul>
+                        <li><a href="note1_1.html" style="color: #4bb247">学校</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>浙传数技本科</p>
+                    <ul>
+                    </ul>
+                </li>
+                <li>
+                    <p>其他</p>
+                    <ul>
+                        <li><a href="note3_1.html" >德语</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class = "main-content">
+            <div class = "title">
+                <h1>德国计算机硕士</h1>
+                <p class = "date">2024.10.16</p>
+            </div>
+            <div class = "catalog">
+                <ul class="collapsible-list">
+                    <li>
+                        <div class = "header"><span class="icon">▶</span>学校</div>
+                        <div class = "content">
+                            <ul class="collapsible-list">
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>TUM</div>
+                                    <div class = "content">
+                                        <ul class="collapsible-list">
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>专业</div>
+                                                <div class = "content"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class = "header"><span class="icon">▶</span>亚琛</div>
+                                    <div class = "content">
+                                        <ul class="collapsible-list">
+                                            <li>
+                                                <div class = "header"><span class="icon">▶</span>专业</div>
+                                                <div class = "content"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class = "">
+                <div class = "">
+                    <h2>德硕学校</h2>
+                    <a href="https://csrankings.org/#/index?all&de">德硕学校排名</a>
+                    <a href="https://www.daad.de/en/">daad</a>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                              <th>学校名称</th>
+                              <th>地点</th>
+                              <th>官网</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>Technische Universität München（慕尼黑工业大学 ）</td>
+                            <td>Munich慕尼黑</td>
+                            <td><a href="https://www.tum.de/">https://www.tum.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Technische Universität Darmstadt（达姆施塔特工业大学）</td>
+                            <td>Darmstadt黑森州达姆施塔特</td>
+                            <td><a href="https://www.tu-darmstadt.de/">https://www.tu-darmstadt.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Universität des Saarlandes（萨尔大学）</td>
+                            <td>Saarbrücken萨尔州</td>
+                            <td><a href="https://www.uni-saarland.de/">https://www.uni-saarland.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Technische Universität Berlin（柏林工业大学）</td>
+                            <td>Berlin首都柏林</td>
+                            <td><a href="https://www.tu-berlin.de/">https://www.tu-berlin.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>RWTH Aachen University（亚琛工业大学）</td>
+                            <td>Aachen北莱茵-威斯特法伦州亚琛市</td>
+                            <td><a href="https://www.rwth-aachen.de/">https://www.rwth-aachen.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>University of Stuttgart（斯图加特大学）</td>
+                            <td>Stuttgart巴登-符腾堡州首府斯图加特</td>
+                            <td><a href="https://www.uni-stuttgart.de/">https://www.uni-stuttgart.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Ludwig-Maximilians-Universität München（慕尼黑大学）</td>
+                            <td>Munich慕尼黑</td>
+                            <td><a href="https://www.lmu.de/">https://www.lmu.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>University of Tübingen（蒂宾根大学）</td>
+                            <td>Tübingen巴登-符腾堡州蒂宾根</td>
+                            <td><a href="https://www.uni-tuebingen.de/">https://www.uni-tuebingen.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Karlsruhe Institute of Technology (KIT卡尔斯鲁厄理工学院) </td>
+                            <td>Karlsruhe卡尔斯鲁厄</td>
+                            <td><a href="https://www.kit.edu/">https://www.kit.edu/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Ruhr-University Bochum（波鸿鲁尔大学）</td>
+                            <td>Bochum北莱茵-威斯特法伦州波鸿市</td>
+                            <td><a href="https://www.ruhr-uni-bochum.de/">https://www.ruhr-uni-bochum.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Technische Universität Dresden（德累斯顿工业大学）</td>
+                            <td>Dresden萨克森州首府德累斯顿</td>
+                            <td><a href="https://www.tu-dresden.de/">https://www.tu-dresden.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>University of Bonn（波恩大学）</td>
+                            <td>Bonn北莱茵-威斯特法伦州波恩市</td>
+                            <td><a href="https://www.uni-bonn.de/">https://www.uni-bonn.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Technische Universität Kaiserslautern（凯泽斯劳滕工业大学）</td>
+                            <td>Kaiserslautern莱茵兰-普法尔茨州凯泽斯劳滕</td>
+                            <td><a href="https://www.informatik.uni-kl.de/">https://www.informatik.uni-kl.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>University of Freiburg（弗莱堡大学）</td>
+                            <td>Freiburg</td>
+                            <td><a href="https://www.informatik.uni-freiburg.de/">https://www.informatik.uni-freiburg.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Technische Universität Dortmund（多特蒙德工业大学）</td>
+                            <td>Dortmund</td>
+                            <td><a href="https://www.tu-dortmund.de/">https://www.tu-dortmund.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>University of Hamburg（汉堡大学）</td>
+                            <td>Hamburg</td>
+                            <td><a href="https://www.informatik.uni-hamburg.de/">https://www.informatik.uni-hamburg.de/</a></td>
+                        </tr>
+                        <tr>
+                            <td>University of Würzburg（维尔茨堡大学）</td>
+                            <td>Würzburg</td>
+                            <td><a href="https://www.informatik.uni-wuerzburg.de/">https://www.informatik.uni-wuerzburg.de/</a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class = "">
+                    <h2>TUM</h2>
+                    <p>Informatik计算机科学</p>   
+                    <ul>
+                        <li>Pflichtmodule Informatik und Mathematik计算机科学和数学的必修模块</li>
+                        <li>Wahlmodule Informatik计算机科学选修模块</li>
+                        <li>Seminar und Praktikum研讨会和实习</li>
+                        <li>Anwendungsfach申请主题</li>
+                        <li>Überfachliche Grundlagen跨学科基础知识</li>
+                        <li>Abschlussarbeit论文</li>
+                    </ul>                
+                    <table border="1">
+                        <caption><a href = "https://www.cit.tum.de/cit/studium/studiengaenge/bachelor-informatik/studienplan/" target="_blank">Studienpläne für den Bachelor Informatik计算机科学学士学位学习计划</a></caption>
+                        <thead>
+                            <th>模块</th>
+                            <th>Studiengang研究课程</th>
+                            <th>Contents</th>
+                        </thead>
+                        <tr>
+                            <td rowspan="11">Informatik</td>
+                            <td>IN0001 Einführung in die Informatik *IN0001 计算机科学导论 *6 Credits</td>
+                            <td><a href="https://campus.tum.de/tumonline/WBMODHB.wbShowMHBReadOnly?pKnotenNr=455630&pOrgNr=14189" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0004 Einführung in die Rechnerarchitektur *IN0004 计算机体系结构简介 *8 Credits</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0006 Einführung in die SoftwaretechnikIN0006 软件工程简介 * 6 Credits</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0007 Grundlagen: Algorithmen und DatenstrukturenIN0007 基础知识：算法和数据结构 * 6 Credits</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0003 Funktionale Programmierung und VerifikationIN0003 函数式编程和验证</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0008 Grundlagen: Datenbanken IN0008 基础知识：数据库</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0009 Grundlagen: Betriebssysteme und SystemsoftwareIN0009 基础知识：操作系统和系统软件</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0010 Grundlagen: Rechnernetze und Verteilte SystemeIN0010 基础知识：计算机网络和分布式系统</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0011 Einführung in die Theoretische InformatikIN0011 理论计算机科学导论</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0042 IT-SicherheitIN0042 信息技术安全</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>Wahlmodule Informatik ***计算机科学选修模块***</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="5">Mathematik</td>
+                            <td>IN0015 Diskrete Strukturen *IN0015 离散结构 * 8 Credits</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>MA0901 Lineare Algebra für InformatikMA0901 计算机科学线性代数</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>MA0902 Analysis für InformatikMA0902 计算机科学分析</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0018 Diskrete Wahrscheinlichkeitstheorie 6 CreditsIN0018 离散概率论</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0019 Numerisches Programmieren IN0019 数值编程</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4">Praktika, Projekte, Seminare</td>
+                            <td>IN0002 Grundlagenpraktikum: Programmierung IN0002 基础实习：编程 6 Credits</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0005 Grundlagenpraktikum: RechnerarchitekturIN0005 基础实践课程：计算机体系结构</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>IN0014 Seminar IN0014 研讨会</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                        </tr>
+                        <tr>
+                            <td>CIT000000 BachelorarbeitCIT000000 学士论文</td>
+                            <td><a href="" target="_blank">课程内容 </a></td>
+                         </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <script src="../logfile/catalog.js"></script>
+        </div>
+    </div>
+</body>
