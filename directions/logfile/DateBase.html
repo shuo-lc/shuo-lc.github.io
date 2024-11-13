@@ -1,24 +1,113 @@
-<!DOCTYPE html><html><head>
-      <title>DateBase</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css">
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <style>
-      /**
- * prism.js Github theme based on GitHub's theme.
- * @author Sam Clarke
- */
-code[class*="language-"],
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数据库</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css">
+    <style>
+        body {
+            width:100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-color: #ffffff;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: 220px 1fr; 
+            grid-template-rows: 60px 1fr; 
+            height: 100vh;
+        }
+        .navbar {
+            grid-column: 1 / -1;
+            background-color: #333333;
+            display: flex;
+            padding: 20px;
+            color: #fefefe;
+        }
+        .sidebar {
+            background-color: #505050;
+        }
+        .main-content {
+            background-color: #c0cdc1;
+        }
+        .home-btn {
+            color: #fefefe;
+            text-decoration: none;
+            margin-left: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .home-btn:hover {
+            color: #99cf97;
+        }
+        .home-btn:active {
+            transform: translateY(3px);
+            color:#4bb247;
+        }
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 10px;
+        }
+        .sidebar p {
+            margin: 0;
+            padding: 10px;
+            color: #fefefe;
+            font-weight: bold;
+        }
+        .sidebar ul ul {
+            margin-left: 20px;
+        }
+        .sidebar a {
+            color: #fefefe;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            color: #4bb247;
+        }
+
+        .collapsible-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .collapsible-list li {
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .header {
+            padding-left: 30px;
+            cursor: pointer; 
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        .icon {
+            display: inline-block;
+            margin-right: 10px; /* 图标与文字之间的间距 */
+            transition: transform 0.3s; /* 添加平滑过渡效果 */
+        }
+
+        .header:hover .icon {
+            transform: rotate(90deg); /* 展开时旋转图标 */
+            color:#4bb247;
+        }
+
+        .header:hover {
+            color:#4bb247;
+        }
+
+        .content {
+            padding-left: 50px;
+            display: none; 
+        }
+        code[class*="language-"],
 pre[class*="language-"] {
   color: #333;
   background: none;
@@ -257,508 +346,534 @@ pre[data-line] .line-highlight[data-end]:after {
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 
-      </style>
-    </head>
-    <body for="html-export">
-      <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E5%BA%93-">&#x6570;&#x636E;&#x5E93;</h1>
-
-
-<div class="md-toc">
-<details style="padding:0;;padding-left:0px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x6570;&#x636E;&#x5E93;-" class="md-toc-link"><p>&#x6570;&#x636E;&#x5E93;</p>
-</a>
-          </summary>
-        <div>
-          <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x4E00;-&#x6982;&#x8BBA;-" class="md-toc-link"><p>&#x4E00;&#x3001;&#x6982;&#x8BBA;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x57FA;&#x672C;&#x6982;&#x5FF5;-" class="md-toc-link">
-            <p>&#x57FA;&#x672C;&#x6982;&#x5FF5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x6A21;&#x578B;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x6A21;&#x578B;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</p>
-
-          </a></div>
+        </style>
+</head>
+<body for="html-export">
+    <div class="main-container">
+        <div class="navbar">
+            <a>GleanBear 网站建设日志</a>
+            <a href="../../index.html" class="home-btn">GleanBear'net</a>
         </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x4E8C;-&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;-" class="md-toc-link"><p>&#x4E8C;&#x3001;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-1&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;-" class="md-toc-link">
-            <p>1.&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-2&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;-" class="md-toc-link">
-            <p>2.&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-3&#x5173;&#x7CFB;&#x4EE3;&#x6570;-" class="md-toc-link">
-            <p>3.&#x5173;&#x7CFB;&#x4EE3;&#x6570;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-4e-r&#x6A21;&#x578B;-" class="md-toc-link">
-            <p>4.E-R&#x6A21;&#x578B;</p>
-
-          </a></div>
+        <div class = "sidebar">
+            <ul>
+                <li><a style = "font-weight: bold; padding: 10px;" href = "../log.html">概览</a></li>
+                <li>
+                    <p>网站</p>
+                    <ul>
+                        <li><a href="logNet1.html" >建站准备</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>前端</p>
+                </li>
+                <li>
+                  <p>后端</p>
+                  <ul>
+                      <li><a href="database.html" style = "color: #4bb247">数据库</a></li>
+                  </ul>
+              </li>
+            </ul>
         </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x4E09;-&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;-" class="md-toc-link"><p>&#x4E09;&#x3001;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-sql&#x6982;&#x8FF0;-" class="md-toc-link">
-            <p>SQL&#x6982;&#x8FF0;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x5B9A;&#x4E49;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x5B9A;&#x4E49;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x5E93;--1" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x5E93;</p>
-
-          </a></div>
-        </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x56DB;-&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;-" class="md-toc-link"><p>&#x56DB;&#x3001;&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x7C7B;&#x578B;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;-" class="md-toc-link">
-            <p>&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x66F4;&#x65B0;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
-
-          </a></div>
-        </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x4E94;-&#x6570;&#x636E;&#x67E5;&#x8BE2;-" class="md-toc-link"><p>&#x4E94;&#x3001;&#x6570;&#x636E;&#x67E5;&#x8BE2;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;-" class="md-toc-link">
-            <p>mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</p>
-
-          </a></div><details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x57FA;&#x672C;&#x67E5;&#x8BE2;-" class="md-toc-link"><p>&#x57FA;&#x672C;&#x67E5;&#x8BE2;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-select&#x5217;&#x540D;-from-&#x8868;&#x540D;-" class="md-toc-link">
-            <p>select&#x5217;&#x540D; from &#x8868;&#x540D;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-where&#x5B50;&#x53E5;-" class="md-toc-link">
-            <p>where&#x5B50;&#x53E5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-order-by&#x5B50;&#x53E5;-" class="md-toc-link">
-            <p>order by&#x5B50;&#x53E5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-group-by&#x5B50;&#x53E5;-" class="md-toc-link">
-            <p>group by&#x5B50;&#x53E5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-having&#x5B50;&#x53E5;-" class="md-toc-link">
-            <p>having&#x5B50;&#x53E5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x805A;&#x96C6;&#x51FD;&#x6570;-" class="md-toc-link">
-            <p>&#x805A;&#x96C6;&#x51FD;&#x6570;</p>
-
-          </a></div>
-        </div>
-      </details>
-    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;-" class="md-toc-link">
-            <p>&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x5D4C;&#x5957;&#x67E5;&#x8BE2;-" class="md-toc-link">
-            <p>&#x5D4C;&#x5957;&#x67E5;&#x8BE2;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;-" class="md-toc-link">
-            <p>&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
-
-          </a></div>
-        </div>
-      </details>
-    
-        </div>
-      </details>
-    
-</div>
-<h2 class="mume-header" id="-%E4%B8%80-%E6%A6%82%E8%AE%BA-">&#x4E00;&#x3001;&#x6982;&#x8BBA;</h2>
-
-<h3 class="mume-header" id="-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h3>
-
-<p>Data DB DBMS DBS DBA</p>
-<h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B-">&#x6570;&#x636E;&#x6A21;&#x578B;</h3>
-
-<p>&#x5C42;&#x6B21;&#x6A21;&#x578B;&#x3001;&#x7F51;&#x72B6;&#x6A21;&#x578B;&#x3001;&#x5173;&#x7CFB;&#x6A21;&#x578B;</p>
-<h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-">&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</h3>
-
-<p>&#x4E09;&#x7EA7;&#x6A21;&#x5F0F;&#x7ED3;&#x6784;&#x548C;&#x4E8C;&#x7EA7;&#x6620;&#x50CF;</p>
-<h2 class="mume-header" id="-%E4%BA%8C-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B-">&#x4E8C;&#x3001;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;</h2>
-
-<h3 class="mume-header" id="-1%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5-">1.&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;</h3>
-
-<h3 class="mume-header" id="-2%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F-">2.&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</h3>
-
-<h3 class="mume-header" id="-3%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0-">3.&#x5173;&#x7CFB;&#x4EE3;&#x6570;</h3>
-
-<h3 class="mume-header" id="-4e-r%E6%A8%A1%E5%9E%8B-">4.E-R&#x6A21;&#x578B;</h3>
-
-<h2 class="mume-header" id="-%E4%B8%89-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86-">&#x4E09;&#x3001;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;</h2>
-
-<h3 class="mume-header" id="-sql%E6%A6%82%E8%BF%B0-">SQL&#x6982;&#x8FF0;</h3>
-
-<h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89-">&#x6570;&#x636E;&#x5B9A;&#x4E49;</h3>
-
-<h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E5%BA%93--1">&#x6570;&#x636E;&#x5E93;</h3>
-
-<p><strong>&#x521B;&#x5EFA;</strong></p>
-<pre data-role="codeBlock" data-info class="language-"><code>create database db_name;
-</code></pre><p><strong>&#x5220;&#x9664;</strong></p>
-<pre data-role="codeBlock" data-info class="language-"><code>drop database db_name;
-</code></pre><p><strong>&#x66F4;&#x6539;</strong></p>
-<pre data-role="codeBlock" data-info class="language-"><code>alter database db_name;
-</code></pre><h2 class="mume-header" id="-%E5%9B%9B-%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%AE%A1%E7%90%86-">&#x56DB;&#x3001;&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;</h2>
-
-<p><strong>&#x521B;&#x5EFA;</strong></p>
-<pre data-role="codeBlock" data-info class="language-"><code>create table tb_name(
-    column_name data_type Column-level-integrity-constraint,
-    column_name data_type Column-level-integrity-constraint,
-    Table-level-integrity-constraint
-);
-</code></pre><p><strong>&#x5220;&#x9664;</strong></p>
-<pre data-role="codeBlock" data-info class="language-"><code>drop table tb_name;
-</code></pre><p><strong>&#x66F4;&#x6539;</strong></p>
-<pre data-role="codeBlock" data-info class="language-"><code>alter table tb_name;
-</code></pre><h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-">&#x6570;&#x636E;&#x7C7B;&#x578B;</h3>
-
-<h3 class="mume-header" id="-%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F-">&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</h3>
-
-<h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-">&#x6570;&#x636E;&#x66F4;&#x65B0;</h3>
-
-<h2 class="mume-header" id="-%E4%BA%94-%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2-">&#x4E94;&#x3001;&#x6570;&#x636E;&#x67E5;&#x8BE2;</h2>
-
-<h3 class="mume-header" id="-mysql%E7%9A%84%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0-">mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</h3>
-
-<h3 class="mume-header" id="-%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2-">&#x57FA;&#x672C;&#x67E5;&#x8BE2;</h3>
-
-<h4 class="mume-header" id="-select%E5%88%97%E5%90%8D-from-%E8%A1%A8%E5%90%8D-">select&#x5217;&#x540D; from &#x8868;&#x540D;</h4>
-
-<ul>
-<li><code>*</code>&#x8868;&#x793A;&#x9009;&#x62E9;&#x5168;&#x90E8;&#x5217;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name;
-</code></pre><ul>
-<li><code>,</code>&#x9694;&#x5F00;&#x591A;&#x4E2A;&#x5217;&#x540D;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select sno,cno from table_name;
-</code></pre><ul>
-<li>&#x7B97;&#x6570;&#x8FD0;&#x7B97;&#x7B26;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select score,score+5 from table_name;
-</code></pre><ul>
-<li>&#x5B57;&#x7B26;&#x4E32;&#x51FD;&#x6570;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select score,LOWER(score+5) from table_name;
-</code></pre><ul>
-<li>&#x51FD;&#x6570;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select sname,YEAR(CURRENT_DATE)-YEAR(birthdate) from table_name;
-</code></pre><ul>
-<li>&#x5217;&#x7684;&#x522B;&#x540D;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select sname,YEAR(CURRENT_DATE)-YEAR(birthdate) AS age from table_name;
-</code></pre><ul>
-<li>&#x5B57;&#x7B26;&#x4E32;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select sname,&apos;was born in &apos;,birthdate from table_name;
-</code></pre><ul>
-<li>&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x548C;&#x5B57;&#x7B26;&#x4E32;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select concat(sname,&apos;was born in &apos;,birthdate) AS birth_info from table_name;
-</code></pre><ul>
-<li>DISTINCT&#x5173;&#x952E;&#x5B57;:&#x53BB;&#x9664;&#x91CD;&#x590D;&#x7684;&#x884C;</li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select DISTINCT sname from table_name;
-</code></pre><h4 class="mume-header" id="-where%E5%AD%90%E5%8F%A5-">where&#x5B50;&#x53E5;</h4>
-
-<ul>
-<li>&#x6BD4;&#x8F83;&#x5927;&#x5C0F;<code>= &lt; &gt; &lt;= &gt;=</code></li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where score&gt;60;
-select * from table_name where sept = &apos;&#x5973;&apos;;
-</code></pre><ul>
-<li>&#x786E;&#x5B9A;&#x8303;&#x56F4;<code>between and</code></li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where score between 60 and 80;
-</code></pre><ul>
-<li>&#x786E;&#x5B9A;&#x96C6;&#x5408;<code>in</code></li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where sept (not) in (&apos;&#x7537;&apos;,&apos;&#x5973;&apos;);
-</code></pre><ul>
-<li>&#x5B57;&#x7B26;&#x5339;&#x914D;<code>like</code>
-<ul>
-<li>&#x5339;&#x914D;&#x56FA;&#x5B9A;&#x5B57;&#x7B26;&#x4E32;<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where sname like &apos;&#x738B;&#x5C0F;&#x660E;&apos;;
-</code></pre></li>
-<li>&#x5339;&#x914D;&#x901A;&#x914D;&#x7B26;&#xFF1A;<code>%</code>&#x8868;&#x793A;&#x4EFB;&#x610F;&#x957F;&#x5EA6;&#x5B57;&#x7B26;&#x4E32;<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where sname like &apos;%&#x738B;%&apos;;
-</code></pre></li>
-<li>&#x5339;&#x914D;&#x901A;&#x914D;&#x7B26;&#xFF1A;<code>_</code>&#x8868;&#x793A;&#x5355;&#x4E2A;&#x5B57;&#x7B26;</li>
-<li>&#x8F6C;&#x7801;&#x5B57;&#x7B26;<code>escape</code><pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where sname like &apos;web#_design&apos; escape &apos;#&apos;;
-</code></pre></li>
-</ul>
-</li>
-<li>&#x7A7A;&#x503C;&#x67E5;&#x8BE2;<code>is null</code></li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where score is null;
-</code></pre><ul>
-<li>&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x7B26;<code>not and or</code></li>
-</ul>
-<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where score&gt;60 or score&lt;50 and sept=&apos;&#x7537;&apos;;
-</code></pre><h4 class="mume-header" id="-order-by%E5%AD%90%E5%8F%A5-">order by&#x5B50;&#x53E5;</h4>
-
-<p>order by &#x5217;&#x540D; [asc|desc]</p>
-<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name order by score desc,sname asc;
-</code></pre><h4 class="mume-header" id="-group-by%E5%AD%90%E5%8F%A5-">group by&#x5B50;&#x53E5;</h4>
-
-<h4 class="mume-header" id="-having%E5%AD%90%E5%8F%A5-">having&#x5B50;&#x53E5;</h4>
-
-<h4 class="mume-header" id="-%E8%81%9A%E9%9B%86%E5%87%BD%E6%95%B0-">&#x805A;&#x96C6;&#x51FD;&#x6570;</h4>
-
-<ul>
-<li>count()</li>
-<li>sum()</li>
-<li>avg()</li>
-<li>max()</li>
-<li>min()</li>
-</ul>
-<h3 class="mume-header" id="-%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2-">&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</h3>
-
-<h3 class="mume-header" id="-%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2-">&#x5D4C;&#x5957;&#x67E5;&#x8BE2;</h3>
-
-<h3 class="mume-header" id="-%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-">&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;</h3>
-
-
-      </div>
-      <div class="md-sidebar-toc">
-<div class="md-toc">
-<details style="padding:0;;padding-left:0px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x6570;&#x636E;&#x5E93;-" class="md-toc-link"><p>&#x6570;&#x636E;&#x5E93;</p>
-</a>
-          </summary>
-        <div>
-          <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x4E00;-&#x6982;&#x8BBA;-" class="md-toc-link"><p>&#x4E00;&#x3001;&#x6982;&#x8BBA;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x57FA;&#x672C;&#x6982;&#x5FF5;-" class="md-toc-link">
-            <p>&#x57FA;&#x672C;&#x6982;&#x5FF5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x6A21;&#x578B;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x6A21;&#x578B;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</p>
-
-          </a></div>
-        </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x4E8C;-&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;-" class="md-toc-link"><p>&#x4E8C;&#x3001;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-1&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;-" class="md-toc-link">
-            <p>1.&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-2&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;-" class="md-toc-link">
-            <p>2.&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-3&#x5173;&#x7CFB;&#x4EE3;&#x6570;-" class="md-toc-link">
-            <p>3.&#x5173;&#x7CFB;&#x4EE3;&#x6570;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-4e-r&#x6A21;&#x578B;-" class="md-toc-link">
-            <p>4.E-R&#x6A21;&#x578B;</p>
-
-          </a></div>
-        </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x4E09;-&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;-" class="md-toc-link"><p>&#x4E09;&#x3001;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-sql&#x6982;&#x8FF0;-" class="md-toc-link">
-            <p>SQL&#x6982;&#x8FF0;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x5B9A;&#x4E49;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x5B9A;&#x4E49;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x5E93;--1" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x5E93;</p>
-
-          </a></div>
-        </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x56DB;-&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;-" class="md-toc-link"><p>&#x56DB;&#x3001;&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x7C7B;&#x578B;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;-" class="md-toc-link">
-            <p>&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x6570;&#x636E;&#x66F4;&#x65B0;-" class="md-toc-link">
-            <p>&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
-
-          </a></div>
-        </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x4E94;-&#x6570;&#x636E;&#x67E5;&#x8BE2;-" class="md-toc-link"><p>&#x4E94;&#x3001;&#x6570;&#x636E;&#x67E5;&#x8BE2;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;-" class="md-toc-link">
-            <p>mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</p>
-
-          </a></div><details style="padding:0;;padding-left:24px;" open>
-        <summary class="md-toc-link-wrapper">
-          <a href="#-&#x57FA;&#x672C;&#x67E5;&#x8BE2;-" class="md-toc-link"><p>&#x57FA;&#x672C;&#x67E5;&#x8BE2;</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-select&#x5217;&#x540D;-from-&#x8868;&#x540D;-" class="md-toc-link">
-            <p>select&#x5217;&#x540D; from &#x8868;&#x540D;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-where&#x5B50;&#x53E5;-" class="md-toc-link">
-            <p>where&#x5B50;&#x53E5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-order-by&#x5B50;&#x53E5;-" class="md-toc-link">
-            <p>order by&#x5B50;&#x53E5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-group-by&#x5B50;&#x53E5;-" class="md-toc-link">
-            <p>group by&#x5B50;&#x53E5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-having&#x5B50;&#x53E5;-" class="md-toc-link">
-            <p>having&#x5B50;&#x53E5;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x805A;&#x96C6;&#x51FD;&#x6570;-" class="md-toc-link">
-            <p>&#x805A;&#x96C6;&#x51FD;&#x6570;</p>
-
-          </a></div>
-        </div>
-      </details>
-    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;-" class="md-toc-link">
-            <p>&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x5D4C;&#x5957;&#x67E5;&#x8BE2;-" class="md-toc-link">
-            <p>&#x5D4C;&#x5957;&#x67E5;&#x8BE2;</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#-&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;-" class="md-toc-link">
-            <p>&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
-
-          </a></div>
-        </div>
-      </details>
-    
-        </div>
-      </details>
-    
-</div>
-</div>
-      <a id="sidebar-toc-btn">&#x2261;</a>
-    
-    
-    
-    
-    
-    
-    
-    
-<script>
-
-var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
-sidebarTOCBtn.addEventListener('click', function(event) {
-  event.stopPropagation()
-  if (document.body.hasAttribute('html-show-sidebar-toc')) {
-    document.body.removeAttribute('html-show-sidebar-toc')
-  } else {
-    document.body.setAttribute('html-show-sidebar-toc', true)
-  }
-})
-</script>
+        <div class = "main-content">
+          <div class="mume markdown-preview  ">
+            <h1 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E5%BA%93-">&#x6570;&#x636E;&#x5E93;</h1>
       
-  
-    </body></html>
+      
+      <div class="md-toc">
+      <details style="padding:0;;padding-left:0px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x6570;&#x636E;&#x5E93;-" class="md-toc-link"><p>&#x6570;&#x636E;&#x5E93;</p>
+      </a>
+                </summary>
+              <div>
+                <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x4E00;-&#x6982;&#x8BBA;-" class="md-toc-link"><p>&#x4E00;&#x3001;&#x6982;&#x8BBA;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x57FA;&#x672C;&#x6982;&#x5FF5;-" class="md-toc-link">
+                  <p>&#x57FA;&#x672C;&#x6982;&#x5FF5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x6A21;&#x578B;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x6A21;&#x578B;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x4E8C;-&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;-" class="md-toc-link"><p>&#x4E8C;&#x3001;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-1&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;-" class="md-toc-link">
+                  <p>1.&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-2&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;-" class="md-toc-link">
+                  <p>2.&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-3&#x5173;&#x7CFB;&#x4EE3;&#x6570;-" class="md-toc-link">
+                  <p>3.&#x5173;&#x7CFB;&#x4EE3;&#x6570;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-4e-r&#x6A21;&#x578B;-" class="md-toc-link">
+                  <p>4.E-R&#x6A21;&#x578B;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x4E09;-&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;-" class="md-toc-link"><p>&#x4E09;&#x3001;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-sql&#x6982;&#x8FF0;-" class="md-toc-link">
+                  <p>SQL&#x6982;&#x8FF0;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x5B9A;&#x4E49;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x5B9A;&#x4E49;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x5E93;--1" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x5E93;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x56DB;-&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;-" class="md-toc-link"><p>&#x56DB;&#x3001;&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x7C7B;&#x578B;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;-" class="md-toc-link">
+                  <p>&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x66F4;&#x65B0;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x4E94;-&#x6570;&#x636E;&#x67E5;&#x8BE2;-" class="md-toc-link"><p>&#x4E94;&#x3001;&#x6570;&#x636E;&#x67E5;&#x8BE2;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;-" class="md-toc-link">
+                  <p>mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</p>
+      
+                </a></div><details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x57FA;&#x672C;&#x67E5;&#x8BE2;-" class="md-toc-link"><p>&#x57FA;&#x672C;&#x67E5;&#x8BE2;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-select&#x5217;&#x540D;-from-&#x8868;&#x540D;-" class="md-toc-link">
+                  <p>select&#x5217;&#x540D; from &#x8868;&#x540D;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-where&#x5B50;&#x53E5;-" class="md-toc-link">
+                  <p>where&#x5B50;&#x53E5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-order-by&#x5B50;&#x53E5;-" class="md-toc-link">
+                  <p>order by&#x5B50;&#x53E5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-group-by&#x5B50;&#x53E5;-" class="md-toc-link">
+                  <p>group by&#x5B50;&#x53E5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-having&#x5B50;&#x53E5;-" class="md-toc-link">
+                  <p>having&#x5B50;&#x53E5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x805A;&#x96C6;&#x51FD;&#x6570;-" class="md-toc-link">
+                  <p>&#x805A;&#x96C6;&#x51FD;&#x6570;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;-" class="md-toc-link">
+                  <p>&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x5D4C;&#x5957;&#x67E5;&#x8BE2;-" class="md-toc-link">
+                  <p>&#x5D4C;&#x5957;&#x67E5;&#x8BE2;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;-" class="md-toc-link">
+                  <p>&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          
+              </div>
+            </details>
+          
+      </div>
+      <h2 class="mume-header" id="-%E4%B8%80-%E6%A6%82%E8%AE%BA-">&#x4E00;&#x3001;&#x6982;&#x8BBA;</h2>
+      
+      <h3 class="mume-header" id="-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h3>
+      
+      <p>Data DB DBMS DBS DBA</p>
+      <h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B-">&#x6570;&#x636E;&#x6A21;&#x578B;</h3>
+      
+      <p>&#x5C42;&#x6B21;&#x6A21;&#x578B;&#x3001;&#x7F51;&#x72B6;&#x6A21;&#x578B;&#x3001;&#x5173;&#x7CFB;&#x6A21;&#x578B;</p>
+      <h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-">&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</h3>
+      
+      <p>&#x4E09;&#x7EA7;&#x6A21;&#x5F0F;&#x7ED3;&#x6784;&#x548C;&#x4E8C;&#x7EA7;&#x6620;&#x50CF;</p>
+      <h2 class="mume-header" id="-%E4%BA%8C-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B-">&#x4E8C;&#x3001;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;</h2>
+      
+      <h3 class="mume-header" id="-1%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5-">1.&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;</h3>
+      
+      <h3 class="mume-header" id="-2%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F-">2.&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</h3>
+      
+      <h3 class="mume-header" id="-3%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0-">3.&#x5173;&#x7CFB;&#x4EE3;&#x6570;</h3>
+      
+      <h3 class="mume-header" id="-4e-r%E6%A8%A1%E5%9E%8B-">4.E-R&#x6A21;&#x578B;</h3>
+      
+      <h2 class="mume-header" id="-%E4%B8%89-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86-">&#x4E09;&#x3001;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;</h2>
+      
+      <h3 class="mume-header" id="-sql%E6%A6%82%E8%BF%B0-">SQL&#x6982;&#x8FF0;</h3>
+      
+      <h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89-">&#x6570;&#x636E;&#x5B9A;&#x4E49;</h3>
+      
+      <h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E5%BA%93--1">&#x6570;&#x636E;&#x5E93;</h3>
+      
+      <p><strong>&#x521B;&#x5EFA;</strong></p>
+      <pre data-role="codeBlock" data-info class="language-"><code>create database db_name;
+      </code></pre><p><strong>&#x5220;&#x9664;</strong></p>
+      <pre data-role="codeBlock" data-info class="language-"><code>drop database db_name;
+      </code></pre><p><strong>&#x66F4;&#x6539;</strong></p>
+      <pre data-role="codeBlock" data-info class="language-"><code>alter database db_name;
+      </code></pre><h2 class="mume-header" id="-%E5%9B%9B-%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%AE%A1%E7%90%86-">&#x56DB;&#x3001;&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;</h2>
+      
+      <p><strong>&#x521B;&#x5EFA;</strong></p>
+      <pre data-role="codeBlock" data-info class="language-"><code>create table tb_name(
+          column_name data_type Column-level-integrity-constraint,
+          column_name data_type Column-level-integrity-constraint,
+          Table-level-integrity-constraint
+      );
+      </code></pre><p><strong>&#x5220;&#x9664;</strong></p>
+      <pre data-role="codeBlock" data-info class="language-"><code>drop table tb_name;
+      </code></pre><p><strong>&#x66F4;&#x6539;</strong></p>
+      <pre data-role="codeBlock" data-info class="language-"><code>alter table tb_name;
+      </code></pre><h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-">&#x6570;&#x636E;&#x7C7B;&#x578B;</h3>
+      
+      <h3 class="mume-header" id="-%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F-">&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</h3>
+      
+      <h3 class="mume-header" id="-%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-">&#x6570;&#x636E;&#x66F4;&#x65B0;</h3>
+      
+      <h2 class="mume-header" id="-%E4%BA%94-%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2-">&#x4E94;&#x3001;&#x6570;&#x636E;&#x67E5;&#x8BE2;</h2>
+      
+      <h3 class="mume-header" id="-mysql%E7%9A%84%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0-">mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</h3>
+      
+      <h3 class="mume-header" id="-%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2-">&#x57FA;&#x672C;&#x67E5;&#x8BE2;</h3>
+      
+      <h4 class="mume-header" id="-select%E5%88%97%E5%90%8D-from-%E8%A1%A8%E5%90%8D-">select&#x5217;&#x540D; from &#x8868;&#x540D;</h4>
+      
+      <ul>
+      <li><code>*</code>&#x8868;&#x793A;&#x9009;&#x62E9;&#x5168;&#x90E8;&#x5217;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select * from table_name;
+      </code></pre><ul>
+      <li><code>,</code>&#x9694;&#x5F00;&#x591A;&#x4E2A;&#x5217;&#x540D;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select sno,cno from table_name;
+      </code></pre><ul>
+      <li>&#x7B97;&#x6570;&#x8FD0;&#x7B97;&#x7B26;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select score,score+5 from table_name;
+      </code></pre><ul>
+      <li>&#x5B57;&#x7B26;&#x4E32;&#x51FD;&#x6570;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select score,LOWER(score+5) from table_name;
+      </code></pre><ul>
+      <li>&#x51FD;&#x6570;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select sname,YEAR(CURRENT_DATE)-YEAR(birthdate) from table_name;
+      </code></pre><ul>
+      <li>&#x5217;&#x7684;&#x522B;&#x540D;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select sname,YEAR(CURRENT_DATE)-YEAR(birthdate) AS age from table_name;
+      </code></pre><ul>
+      <li>&#x5B57;&#x7B26;&#x4E32;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select sname,&apos;was born in &apos;,birthdate from table_name;
+      </code></pre><ul>
+      <li>&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x548C;&#x5B57;&#x7B26;&#x4E32;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select concat(sname,&apos;was born in &apos;,birthdate) AS birth_info from table_name;
+      </code></pre><ul>
+      <li>DISTINCT&#x5173;&#x952E;&#x5B57;:&#x53BB;&#x9664;&#x91CD;&#x590D;&#x7684;&#x884C;</li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select DISTINCT sname from table_name;
+      </code></pre><h4 class="mume-header" id="-where%E5%AD%90%E5%8F%A5-">where&#x5B50;&#x53E5;</h4>
+      
+      <ul>
+      <li>&#x6BD4;&#x8F83;&#x5927;&#x5C0F;<code>= &lt; &gt; &lt;= &gt;=</code></li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where score&gt;60;
+      select * from table_name where sept = &apos;&#x5973;&apos;;
+      </code></pre><ul>
+      <li>&#x786E;&#x5B9A;&#x8303;&#x56F4;<code>between and</code></li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where score between 60 and 80;
+      </code></pre><ul>
+      <li>&#x786E;&#x5B9A;&#x96C6;&#x5408;<code>in</code></li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where sept (not) in (&apos;&#x7537;&apos;,&apos;&#x5973;&apos;);
+      </code></pre><ul>
+      <li>&#x5B57;&#x7B26;&#x5339;&#x914D;<code>like</code>
+      <ul>
+      <li>&#x5339;&#x914D;&#x56FA;&#x5B9A;&#x5B57;&#x7B26;&#x4E32;<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where sname like &apos;&#x738B;&#x5C0F;&#x660E;&apos;;
+      </code></pre></li>
+      <li>&#x5339;&#x914D;&#x901A;&#x914D;&#x7B26;&#xFF1A;<code>%</code>&#x8868;&#x793A;&#x4EFB;&#x610F;&#x957F;&#x5EA6;&#x5B57;&#x7B26;&#x4E32;<pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where sname like &apos;%&#x738B;%&apos;;
+      </code></pre></li>
+      <li>&#x5339;&#x914D;&#x901A;&#x914D;&#x7B26;&#xFF1A;<code>_</code>&#x8868;&#x793A;&#x5355;&#x4E2A;&#x5B57;&#x7B26;</li>
+      <li>&#x8F6C;&#x7801;&#x5B57;&#x7B26;<code>escape</code><pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where sname like &apos;web#_design&apos; escape &apos;#&apos;;
+      </code></pre></li>
+      </ul>
+      </li>
+      <li>&#x7A7A;&#x503C;&#x67E5;&#x8BE2;<code>is null</code></li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where score is null;
+      </code></pre><ul>
+      <li>&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x7B26;<code>not and or</code></li>
+      </ul>
+      <pre data-role="codeBlock" data-info class="language-"><code>select * from table_name where score&gt;60 or score&lt;50 and sept=&apos;&#x7537;&apos;;
+      </code></pre><h4 class="mume-header" id="-order-by%E5%AD%90%E5%8F%A5-">order by&#x5B50;&#x53E5;</h4>
+      
+      <p>order by &#x5217;&#x540D; [asc|desc]</p>
+      <pre data-role="codeBlock" data-info class="language-"><code>select * from table_name order by score desc,sname asc;
+      </code></pre><h4 class="mume-header" id="-group-by%E5%AD%90%E5%8F%A5-">group by&#x5B50;&#x53E5;</h4>
+      
+      <h4 class="mume-header" id="-having%E5%AD%90%E5%8F%A5-">having&#x5B50;&#x53E5;</h4>
+      
+      <h4 class="mume-header" id="-%E8%81%9A%E9%9B%86%E5%87%BD%E6%95%B0-">&#x805A;&#x96C6;&#x51FD;&#x6570;</h4>
+      
+      <ul>
+      <li>count()</li>
+      <li>sum()</li>
+      <li>avg()</li>
+      <li>max()</li>
+      <li>min()</li>
+      </ul>
+      <h3 class="mume-header" id="-%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2-">&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</h3>
+      
+      <h3 class="mume-header" id="-%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2-">&#x5D4C;&#x5957;&#x67E5;&#x8BE2;</h3>
+      
+      <h3 class="mume-header" id="-%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-">&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;</h3>
+      
+      
+            </div>
+            <div class="md-sidebar-toc">
+      <div class="md-toc">
+      <details style="padding:0;;padding-left:0px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x6570;&#x636E;&#x5E93;-" class="md-toc-link"><p>&#x6570;&#x636E;&#x5E93;</p>
+      </a>
+                </summary>
+              <div>
+                <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x4E00;-&#x6982;&#x8BBA;-" class="md-toc-link"><p>&#x4E00;&#x3001;&#x6982;&#x8BBA;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x57FA;&#x672C;&#x6982;&#x5FF5;-" class="md-toc-link">
+                  <p>&#x57FA;&#x672C;&#x6982;&#x5FF5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x6A21;&#x578B;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x6A21;&#x578B;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x4E8C;-&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;-" class="md-toc-link"><p>&#x4E8C;&#x3001;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x6A21;&#x578B;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-1&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;-" class="md-toc-link">
+                  <p>1.&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x6982;&#x5FF5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-2&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;-" class="md-toc-link">
+                  <p>2.&#x5173;&#x7CFB;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-3&#x5173;&#x7CFB;&#x4EE3;&#x6570;-" class="md-toc-link">
+                  <p>3.&#x5173;&#x7CFB;&#x4EE3;&#x6570;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-4e-r&#x6A21;&#x578B;-" class="md-toc-link">
+                  <p>4.E-R&#x6A21;&#x578B;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x4E09;-&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;-" class="md-toc-link"><p>&#x4E09;&#x3001;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-sql&#x6982;&#x8FF0;-" class="md-toc-link">
+                  <p>SQL&#x6982;&#x8FF0;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x5B9A;&#x4E49;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x5B9A;&#x4E49;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x5E93;--1" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x5E93;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x56DB;-&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;-" class="md-toc-link"><p>&#x56DB;&#x3001;&#x6570;&#x636E;&#x8868;&#x7BA1;&#x7406;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x7C7B;&#x578B;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;-" class="md-toc-link">
+                  <p>&#x5B8C;&#x6574;&#x6027;&#x7EA6;&#x675F;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x6570;&#x636E;&#x66F4;&#x65B0;-" class="md-toc-link">
+                  <p>&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x4E94;-&#x6570;&#x636E;&#x67E5;&#x8BE2;-" class="md-toc-link"><p>&#x4E94;&#x3001;&#x6570;&#x636E;&#x67E5;&#x8BE2;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;-" class="md-toc-link">
+                  <p>mysql&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</p>
+      
+                </a></div><details style="padding:0;;padding-left:24px;" open>
+              <summary class="md-toc-link-wrapper">
+                <a href="#-&#x57FA;&#x672C;&#x67E5;&#x8BE2;-" class="md-toc-link"><p>&#x57FA;&#x672C;&#x67E5;&#x8BE2;</p>
+      </a>
+                </summary>
+              <div>
+                <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-select&#x5217;&#x540D;-from-&#x8868;&#x540D;-" class="md-toc-link">
+                  <p>select&#x5217;&#x540D; from &#x8868;&#x540D;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-where&#x5B50;&#x53E5;-" class="md-toc-link">
+                  <p>where&#x5B50;&#x53E5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-order-by&#x5B50;&#x53E5;-" class="md-toc-link">
+                  <p>order by&#x5B50;&#x53E5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-group-by&#x5B50;&#x53E5;-" class="md-toc-link">
+                  <p>group by&#x5B50;&#x53E5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-having&#x5B50;&#x53E5;-" class="md-toc-link">
+                  <p>having&#x5B50;&#x53E5;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x805A;&#x96C6;&#x51FD;&#x6570;-" class="md-toc-link">
+                  <p>&#x805A;&#x96C6;&#x51FD;&#x6570;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;-" class="md-toc-link">
+                  <p>&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x5D4C;&#x5957;&#x67E5;&#x8BE2;-" class="md-toc-link">
+                  <p>&#x5D4C;&#x5957;&#x67E5;&#x8BE2;</p>
+      
+                </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+                <a href="#-&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;-" class="md-toc-link">
+                  <p>&#x5B50;&#x67E5;&#x8BE2;&#x4E0E;&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
+      
+                </a></div>
+              </div>
+            </details>
+          
+              </div>
+            </details>
+          
+      </div>
+      </div>
+            <a id="sidebar-toc-btn">&#x2261;</a>
+          
+          
+          
+          
+          
+          
+          
+          
+      <script>
+      
+      var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+      sidebarTOCBtn.addEventListener('click', function(event) {
+        event.stopPropagation()
+        if (document.body.hasAttribute('html-show-sidebar-toc')) {
+          document.body.removeAttribute('html-show-sidebar-toc')
+        } else {
+          document.body.setAttribute('html-show-sidebar-toc', true)
+        }
+      })
+      </script>
+        </div>
+    </div>
+</body>
